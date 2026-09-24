@@ -4,13 +4,13 @@ import { TasksModule } from './tasks/tasks.module.js';
 import { UsersModule } from './users/users.module.js';
 import { DatabaseModule } from './database/database.module.js';
 import { CoreModule } from './core/core.module.js';
-import { HttpExceptionFilter } from './common/filters/http-exception.filter.js';
+import { CatchEverythingFilter } from './common/filters/catch-everything.filter.js';
 
 @Module({
   providers: [
     {
       provide: 'APP_FILTER',
-      useClass: HttpExceptionFilter
+      useClass: CatchEverythingFilter
     }
   ],
   imports: [TicketsModule, TasksModule, UsersModule, DatabaseModule, CoreModule],
